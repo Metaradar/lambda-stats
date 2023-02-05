@@ -1,4 +1,4 @@
-# Lambda Function for metaradar.io: sttats
+# Lambda Function for metaradar.io: stats
 This file is part of the metaradar.io project. The project is, so far, a hobby and does not have commercial intend. It is my hope this file can help others how to structure and work out projects.
 
 Metaradar.io is a project that enables the tracking of blockchain addresses.

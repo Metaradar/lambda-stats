@@ -1,0 +1,21 @@
+name: deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+
+  deploy_source:
+    name: deploy lambda from source
+    runs-on: ubuntu-latest
+    steps:
+      - name: Zip function
+        run: zip lambda.zip index.js
+      - name: Upload lambda.zip
+        uses: yvesgurcan/deploy-lambda-function@v0.0.5
+        with:
+        package: .build/lambda/Run/lambda.zip
+        function-name: stats
+        AWS_REGION: us-east-1
+        AWS_SECRET_ID: ${{ secrets.AWS_SECRET_ID }}
+        AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}

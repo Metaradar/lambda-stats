@@ -19,7 +19,7 @@ jobs:
       - name: Upload lambda.zip
         uses: yvesgurcan/deploy-lambda-function@v0.0.5
         with:
-          package: .build/lambda/Run/lambda.zip
+          package: lambda.zip
           function-name: stats
           AWS_REGION: us-east-1
           AWS_SECRET_ID: ${{ secrets.AWS_SECRET_ID }}

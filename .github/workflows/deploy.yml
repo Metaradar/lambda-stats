@@ -9,8 +9,13 @@ jobs:
     name: deploy lambda from source
     runs-on: ubuntu-latest
     steps:
-      - name: Zip function
-        run: zip lambda.zip index.js
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Zip
+        uses: vimtor/action-zip@v1
+        with:
+          files: index.js
+          dest: lambda.zip
       - name: Upload lambda.zip
         uses: yvesgurcan/deploy-lambda-function@v0.0.5
         with:
